@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex WebSocket Client</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Codex WebSocket Client</h1>
+        <p>Connect to a Codex app-server WebSocket endpoint.</p>
+      </header>
+      <section class="connection">
+        <label>
+          WebSocket URL
+          <input id="ws-url" type="text" value="ws://127.0.0.1:9998/app-server/v1" />
+        </label>
+        <div class="controls">
+          <button id="connect">Connect</button>
+          <button id="disconnect" disabled>Disconnect</button>
+        </div>
+        <div class="status" id="status">Disconnected</div>
+      </section>
+      <section class="panels">
+        <div class="panel chat-panel">
+          <div class="panel-header">
+            <h2>Chat</h2>
+            <button id="start-conversation" disabled>Start Conversation</button>
+          </div>
+          <div class="chat-log" id="chat-log" aria-live="polite"></div>
+          <form id="message-form">
+            <input
+              id="message-input"
+              type="text"
+              placeholder="Type a message"
+              disabled
+            />
+            <button type="submit" id="send" disabled>Send</button>
+          </form>
+        </div>
+        <div class="divider" id="divider" role="separator" aria-orientation="vertical"></div>
+        <div class="panel ws-panel">
+          <div class="panel-header">
+            <h2>WebSocket Events</h2>
+          </div>
+          <div class="ws-log" id="ws-log"></div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/js/index.js"></script>
+  </body>
+</html>
